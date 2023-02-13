@@ -6,22 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="337dp"
+        android:layout_height="161dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="127dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="39dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/Login"
+        android:layout_width="236dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="35dp"
+        android:hint="Rentrez votre identifiant"
+        app:layout_constraintBottom_toTopOf="@+id/mdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/mdp"
+        android:layout_width="236dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Login"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="98dp"
+        android:text="Connexion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="173dp"
-        tools:srcCompat="@tools:sample/avatars"
+        app:layout_constraintTop_toBottomOf="@+id/mdp"
         tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
