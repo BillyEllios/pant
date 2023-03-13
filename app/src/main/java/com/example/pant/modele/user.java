@@ -1,5 +1,7 @@
 package com.example.pant.modele;
 
+import android.content.Context;
+
 public class user {
 
     private String mLogin;
