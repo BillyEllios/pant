@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/nav_home"
+            android:title="Page principale"/>
+
+        <item
+            android:id="@+id/nav_appointment_past"
+            android:icon="@drawable/nav_appointment_past"
+            android:title="Rendez-vous passez"/>
+
+        <item
+            android:id="@+id/nav_take_appointment"
+            android:icon="@drawable/nav_take_appointment"
+            android:title="Prendrerendezvous"/>
+
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/nav_report"
+            android:title="Mes comptes rendus"/>
+
+    </group>
+
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/nav_logout"
+                android:title="Logout"/>
+        </menu>
+    </item>
+
+
+</menu>

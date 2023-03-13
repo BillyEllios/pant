@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Boolean mBoolean2;
 
-    private String tableau[][] = {
+    private final String[][] tableau = {
             {"p.boyer", "1234", "architect"},
             {"a.dochez", "1234", "agriculyeur"},
             {"n.goubet", "1234", "policier"}
@@ -42,16 +42,15 @@ public class MainActivity extends AppCompatActivity {
         mMDP=findViewById(R.id.MDP);
         mButton=findViewById(R.id.button);
 
-        mBoolean1=false;
-        mBoolean2=false;
-
         mButton.setEnabled(false);
 
+        //création des objet user à partir du tableau
         user[] users=new user[tableau.length];
         for (int i=0; i<tableau.length;i++){
-            users[i] = new user(tableau[i][0], tableau[i][1], tableau[i][3]);
+            users[i] = new user(tableau[i][0], tableau[i][1], tableau[i][2]);
         }
 
+        //activation du bouton connexion
         mLogin.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
