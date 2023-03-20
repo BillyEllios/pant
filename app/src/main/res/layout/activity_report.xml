@@ -6,26 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".controller.loginPage">
-    
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
+    tools:context=".controller.report">
 
-       <include
-           layout="@layout/toolbar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Rendez-vous futur"
-           android:layout_gravity="center"
-           android:layout_marginTop="40dp"
-           android:textColor="@color/pant"
-           android:textSize="36sp"/>
+        <include
+            layout="@layout/toolbar"/>
 
-   </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compte rendu"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/pant"
+            android:textSize="36sp"/>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="300dp"

@@ -12,8 +12,16 @@
         android:theme="@style/Theme.Pant"
         tools:targetApi="31">
         <activity
+            android:name=".controller.takeAppoint"
+            android:exported="false" />
+        <activity
+            android:name=".controller.report"
+            android:exported="false" />
+        <activity
+            android:name=".controller.appointPast"
+            android:exported="false" />
+        <activity
             android:name=".controller.loginPage"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".controller.MainActivity"
