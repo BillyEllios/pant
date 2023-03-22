@@ -10,14 +10,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.example.pant.R;
+import com.example.pant.modele.Report;
+import com.example.pant.modele.ReportAdaptater;
+
+import java.util.ArrayList;
 
 public class report extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout;
+
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,20 @@ public class report extends AppCompatActivity {
         takeappoint = findViewById(R.id.takeappoint);
         report = findViewById(R.id.report);
         logout = findViewById(R.id.logout);
+
+
+        listView = findViewById(R.id.listView);
+
+        // Create Data
+        ArrayList<Report> arrayList = new ArrayList<>();
+        arrayList.add(new Report("Je suis une tortue", "Je suis intéressé", "24/01/2023","button", "comment"));
+        arrayList.add(new Report("Je suis une tortue", "Je suis intéressé", "24/01/2023","button", "comment"));
+        arrayList.add(new Report("Je suis une tortue", "Je suis intéressé", "24/01/2023","button", "comment"));
+        arrayList.add(new Report("Je suis une tortue", "Je suis intéressé", "24/01/2023","button", "comment"));
+
+        // Custom Adaptater
+        ReportAdaptater reportAdaptater = new ReportAdaptater(this,R.layout.report_list_view,arrayList);
+        listView.setAdapter(reportAdaptater);
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
