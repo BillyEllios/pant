@@ -17,10 +17,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pant.R;
+import com.example.pant.databinding.ActivityMainBinding;
+import com.example.pant.modele.Appoint;
+import com.example.pant.modele.AppointAdaptater;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class loginPage extends AppCompatActivity  {
 
@@ -28,10 +35,40 @@ public class loginPage extends AppCompatActivity  {
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout;
 
+    ListAdapter listAdapter;
+    ArrayList<Appoint> dataArrayList = new ArrayList<>();
+    Appoint appoint;
+    ListView listView;
+    ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_login_page);
+        //setContentView(binding.getRoot());
+
+        listView = findViewById(R.id.listview);
+
+        /*String [] dateList={"23/03/2023", "20/03/2023"};
+        String [] timeList={"08:00:00", "18:00:00"};
+        String [] nameList={"Bob", "Jean"};
+        String [] surnameList={"Papo", "Gégé"};
+        String [] labelList={"médecin", "pharmacien"};
+        int[] idList={1, 2};*/
+        String [][] appointList={
+                {"23/03/2023", "08:00:00", "Bob", "Papo", "médecin", "1"},
+                {"20/03/2023", "10:00:00", "Jean", "Gégé", "pharmacien", "4"},
+                {"17/03/2023", "09:00:00", "Axel", "Dochez", "médecin", "5"}
+        };
+
+        for(int i =0; i< appointList.length; i++){
+            appoint = new Appoint(appointList[i][0], appointList[i][1], appointList[i][2], appointList[i][3], appointList[i][4], Integer.parseInt(appointList[i][5]));
+            dataArrayList.add(appoint);
+        }
+        listAdapter = new AppointAdaptater(loginPage.this, dataArrayList);
+        listView.setAdapter(listAdapter);
+        //binding.listview.setClickable(false);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         menu = findViewById(R.id.menu);

@@ -1,6 +1,6 @@
 package com.example.pant.modele;
 
-public class appoint {
+public class Appoint {
 
     String date;
     String time;
@@ -9,7 +9,7 @@ public class appoint {
     String surname;
     int id_client;
 
-    public appoint(String date, String time, String label, String name, String surname, int id_client) {
+    public Appoint(String date, String time, String label, String name, String surname, int id_client) {
         this.date = date;
         this.time = time;
         this.label = label;
