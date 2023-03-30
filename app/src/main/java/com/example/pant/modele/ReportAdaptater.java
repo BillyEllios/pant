@@ -17,35 +17,30 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class ReportAdaptater extends ArrayAdapter<Report> {
-    private Context mContext;
-    private int mRessource;
-
-    public ReportAdaptater(@NonNull Context context, int resource, @NonNull ArrayList<Report> objects) {
-        super(context, resource, objects);
-        this.mContext = context;
-        this.mRessource = resource;
+    public ReportAdaptater(@NonNull Context context, ArrayList<Report> dataArrayList,int xml) {
+        super(context, xml, dataArrayList);
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+    public View getView(int position, @Nullable View view, @NonNull ViewGroup parent) {
+        Report listData = getItem(position);
 
-        convertView = layoutInflater.inflate(mRessource,parent,false);
+        if(view == null){
+            view = LayoutInflater.from(getContext()).inflate(R.layout.report_list_view, parent, false);
+        }
 
-        TextView txtRapport = convertView.findViewById(R.id.rapport);
-        TextView txtInteret = convertView.findViewById(R.id.interet);
-        TextView txtDate = convertView.findViewById(R.id.date);
-        TextView txtClient = convertView.findViewById(R.id.client);
-        TextView txtComment = convertView.findViewById(R.id.comment);
+        TextView rapport = view.findViewById(R.id.rapport);
+        TextView interet = view.findViewById(R.id.interet);
+        TextView date = view.findViewById(R.id.date);
+        TextView client = view.findViewById(R.id.client);
 
 
-        txtRapport.setText(getItem(position).getRapport());
-        txtInteret.setText(getItem(position).getInteret());
-        txtDate.setText(getItem(position).getDate());
-        txtClient.setText(getItem(position).getClient());
-        txtComment.setText(getItem(position).getComment());
+        rapport.setText(listData.getRapport());
+        interet.setText(listData.getInteret());
+        date.setText(listData.getDate());
+        client.setText(listData.getClient());
 
-        return convertView;
+        return view;
     }
 }

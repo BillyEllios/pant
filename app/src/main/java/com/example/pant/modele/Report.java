@@ -1,7 +1,5 @@
 package com.example.pant.modele;
 
-import android.widget.Button;
-
 public class Report {
 
     String Rapport;
@@ -9,51 +7,37 @@ public class Report {
     String Date;
     String Client;
     String Comment;
-    public Report(String rapport, String interet, String date, String client, String comment) {
-        Rapport = rapport;
-        Interet = interet;
-        Date = date;
-        Client = client;
-        Comment = comment;
+    int id_client;
+    public Report(String Client, String rapport, String interet,String Date, String Comment) {
+        this.Rapport = rapport;
+        this.Interet = interet;
+        this.Date = Date;
+        this.Comment = Comment;
+        this.id_client = id_client;
+        this.Client = Client;
     }
 
     public String getRapport() {
         return Rapport;
     }
 
-    public void setRapport(String rapport) {
-        Rapport = rapport;
-    }
-
     public String getInteret() {
         return Interet;
-    }
-
-    public void setInteret(String interet) {
-        Interet = interet;
     }
 
     public String getDate() {
         return Date;
     }
 
-    public void setDate(String date) {
-        Date = date;
+    public String getComment() {
+        return Comment;
     }
 
     public String getClient() {
         return Client;
     }
 
-    public void setClient(String client) {
-        Client = client;
-    }
-
-    public String getComment() {
-        return Comment;
-    }
-
-    public void setComment(String comment) {
-        Comment = comment;
+    public int getId_client() {
+        return id_client;
     }
 }

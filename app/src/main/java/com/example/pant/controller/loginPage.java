@@ -44,7 +44,6 @@ public class loginPage extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout;
-
     ListAdapter listAdapter;
     ArrayList<Appoint> dataArrayList = new ArrayList<>();
     Appoint appoint;
