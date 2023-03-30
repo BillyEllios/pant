@@ -8,6 +8,16 @@
     android:id="@+id/drawerLayout"
     tools:context=".controller.appointPast">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview"
+        android:scrollbars="vertical"
+        android:layout_marginTop="130dp"
+        tools:listitem="@layout/appoint_past_list"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,9 +29,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rendez-vous passez"
+            android:text="Rendez-vous réalisés"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/pant"
             android:textSize="36sp"/>
 
@@ -37,6 +47,4 @@
             layout="@layout/nav_drawer"/>
 
     </RelativeLayout>
-
-
 </androidx.drawerlayout.widget.DrawerLayout>

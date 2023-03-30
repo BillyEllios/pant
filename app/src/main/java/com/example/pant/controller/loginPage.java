@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.example.pant.R;
 import com.example.pant.databinding.ActivityMainBinding;
 import com.example.pant.modele.Appoint;
-import com.example.pant.modele.AppointAdaptater;
+import com.example.pant.modele.AppointAdaptaterFutur;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,15 +86,17 @@ public class loginPage extends AppCompatActivity {
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
-                Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"));
+                Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"), obj.getInt("id_appoint"));
                 dataArrayList.add(appoint);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
         }
 
-        listAdapter = new AppointAdaptater(loginPage.this, dataArrayList);
+        listAdapter = new AppointAdaptaterFutur(loginPage.this, dataArrayList, R.layout.activity_login_page);
         listView.setAdapter(listAdapter);
+
+        //navigation drawer
 
         drawerLayout = findViewById(R.id.drawerLayout);
         menu = findViewById(R.id.menu);

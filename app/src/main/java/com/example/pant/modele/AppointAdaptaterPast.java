@@ -14,9 +14,9 @@ import com.example.pant.R;
 
 import java.util.ArrayList;
 
-public class AppointAdaptater extends ArrayAdapter<Appoint> {
-    public AppointAdaptater(@NonNull Context context, ArrayList<Appoint> dataArrayList) {
-        super(context, R.layout.appoint_futur_list, dataArrayList);
+public class AppointAdaptaterPast extends ArrayAdapter<Appoint> {
+    public AppointAdaptaterPast(@NonNull Context context, ArrayList<Appoint> dataArrayList, int xml) {
+        super(context, xml, dataArrayList);
     }
 
     @NonNull
@@ -25,7 +25,7 @@ public class AppointAdaptater extends ArrayAdapter<Appoint> {
         Appoint listData = getItem(position);
 
         if(view == null){
-            view = LayoutInflater.from(getContext()).inflate(R.layout.appoint_futur_list, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.appoint_past_list, parent, false);
         }
 
         TextView date = view.findViewById(R.id.listDate);
