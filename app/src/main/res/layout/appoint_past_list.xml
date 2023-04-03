@@ -117,12 +117,16 @@
                 android:textSize="16sp"></TextView>
         </RelativeLayout>
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Rédiger compte rendu"
+            android:textSize="25sp"
             android:layout_gravity="center"
-            android:text="Rédiger compte rendu">
+            android:layout_margin="10dp"
+            android:background="@color/pant"
+            android:textColor="@color/white"
+            android:padding="5dp"/>
 
-        </Button>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

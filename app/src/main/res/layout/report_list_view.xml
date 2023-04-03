@@ -26,13 +26,13 @@
         android:id="@+id/rapport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="34dp"
         android:text="data" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:textColor="@color/black"
         android:text="Date" />
 
@@ -41,13 +41,13 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="95dp"
         android:text="data" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="120dp"
         android:textColor="@color/black"
         android:text="Interet"/>
 
@@ -55,35 +55,22 @@
         android:id="@+id/interet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="119dp"
+        android:layout_marginTop="138dp"
         android:text="data"/>
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="170dp"
         android:textColor="@color/black"
-        android:text="Info Client"/>
+        android:text="Modifier"/>
 
-    <TextView
-        android:id="@+id/client"
+    <Button
+        android:id="@+id/modify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:text="data on click" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:textColor="@color/black"
-        android:text="Commenter"/>
-
-    <TextView
-        android:id="@+id/comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="235dp"
-        android:text="comment on click"/>
+        android:layout_marginTop="190dp"
+        android:text="Modifier"/>
 
 </RelativeLayout>
