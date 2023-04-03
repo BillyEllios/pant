@@ -1,5 +1,7 @@
 package com.example.pant.controller;
 
+import static android.widget.Toast.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -38,15 +40,17 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.Login);
         password = findViewById(R.id.MDP);
         login = findViewById(R.id.button);
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userVar = username.getText().toString();
                 passVar = password.getText().toString();
+
                 if (userVar.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Username cannot be blank", Toast.LENGTH_SHORT).show();
+                    makeText(getApplicationContext(), "Username cannot be blank", LENGTH_SHORT).show();
                 } else if (passVar.equals("")) {
-                    Toast.makeText(getApplicationContext(), "password cannot be blank", Toast.LENGTH_SHORT).show();
+                    makeText(getApplicationContext(), "password cannot be blank", LENGTH_SHORT).show();
                 } else {
 
                     String req = null;
@@ -56,16 +60,23 @@ public class MainActivity extends AppCompatActivity {
                     } catch (UnsupportedEncodingException e) {
                         throw new RuntimeException(e);
                     }
-
+                    System.out.println(req);
                     api lg = new api(MainActivity.this, req, "https://pant-gsb.ovh/api/connection/connection.php");
+
                     lg.execute();
+
                     try {
                         JSONObject response= lg.get();
+                        System.out.println(response);
                         user.id_user = userVar;
                         if (response.getInt("status") == 200) {
                             lg.setToken(response.getJSONObject("data").getString("token"));
                             Intent loginPageIntent = new Intent(MainActivity.this, loginPage.class);
                             startActivity(loginPageIntent);
+                        }if (response.getInt("status") == 400){
+                            Intent loginPageIntent = new Intent(MainActivity.this, MainActivity.class);
+                            startActivity(loginPageIntent);
+
                         }
                     } catch (ExecutionException e) {
                         throw new RuntimeException(e);
