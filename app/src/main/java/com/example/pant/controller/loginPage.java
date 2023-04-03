@@ -52,7 +52,6 @@ public class loginPage extends AppCompatActivity {
 
     public String id_user = "c.omputer";
 
-    private JSONArray[] appointList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +78,14 @@ public class loginPage extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
+        int[] listIdClient = new int[data.length()];
+
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
                 Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"), obj.getInt("id_appoint"));
                 dataArrayList.add(appoint);
+                listIdClient[i]=obj.getInt("id_client");
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -95,7 +97,9 @@ public class loginPage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(loginPage.this, report.class);
+                intent.putExtra("id_client", listIdClient[i]);
                 startActivity(intent);
+                //Toast.makeText(loginPage.this, listIdClient[i], Toast.LENGTH_SHORT).show();
             }
         });
 
