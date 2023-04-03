@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.pant.R;
 import com.example.pant.modele.Appoint;
 import com.example.pant.modele.AppointAdaptaterFutur;
+import com.example.pant.modele.user;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,7 +51,7 @@ public class loginPage extends AppCompatActivity {
     Appoint appoint;
     ListView listView;
 
-    public String id_user = "c.omputer";
+    private String id_user = user.id_user;
 
 
     @Override
@@ -96,10 +97,9 @@ public class loginPage extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(loginPage.this, report.class);
+                Intent intent = new Intent(loginPage.this, ClientActivity.class);
                 intent.putExtra("id_client", listIdClient[i]);
                 startActivity(intent);
-                //Toast.makeText(loginPage.this, listIdClient[i], Toast.LENGTH_SHORT).show();
             }
         });
 

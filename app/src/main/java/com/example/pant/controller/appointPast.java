@@ -21,6 +21,7 @@ import com.example.pant.R;
 import com.example.pant.modele.Appoint;
 import com.example.pant.modele.AppointAdaptaterFutur;
 import com.example.pant.modele.AppointAdaptaterPast;
+import com.example.pant.modele.user;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,8 +51,7 @@ public class appointPast extends AppCompatActivity {
     Appoint appoint;
     ListView listView;
 
-    public String id_user="c.omputer";
-    private JSONArray[] appointList;
+    private String id_user= user.id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
