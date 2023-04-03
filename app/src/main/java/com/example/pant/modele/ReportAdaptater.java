@@ -33,13 +33,11 @@ public class ReportAdaptater extends ArrayAdapter<Report> {
         TextView rapport = view.findViewById(R.id.rapport);
         TextView interet = view.findViewById(R.id.interet);
         TextView date = view.findViewById(R.id.date);
-        TextView client = view.findViewById(R.id.client);
 
 
         rapport.setText(listData.getRapport());
         interet.setText(listData.getInteret());
         date.setText(listData.getDate());
-        client.setText(listData.getClient());
 
         return view;
     }

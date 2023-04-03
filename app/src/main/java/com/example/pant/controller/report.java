@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -47,6 +48,8 @@ public class report extends AppCompatActivity {
     ArrayList<Report> dataArrayList = new ArrayList<>();
     ListView listView;
 
+    Button Modify;
+
     public String id_user = "c.omputer";
 
     @Override
@@ -55,6 +58,7 @@ public class report extends AppCompatActivity {
         setContentView(R.layout.activity_report);
 
         listView = findViewById(R.id.listView);
+        Modify = findViewById(R.id.modify);
 
         Toast.makeText(getApplicationContext(), "login method to proceed", Toast.LENGTH_SHORT).show();
 
@@ -78,7 +82,7 @@ public class report extends AppCompatActivity {
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
-                Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("comments"), obj.getString("date_appoint"), obj.getString("id_client"));
+                Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("date_appoint"));
                 dataArrayList.add(report);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
@@ -87,6 +91,7 @@ public class report extends AppCompatActivity {
 
         ReportAdaptater listAdapter = new ReportAdaptater(report.this, dataArrayList, R.layout.report_list_view);
         listView.setAdapter(listAdapter);
+
 
 
         drawerLayout = findViewById(R.id.drawerLayout);
