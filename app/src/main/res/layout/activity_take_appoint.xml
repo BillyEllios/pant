@@ -16,15 +16,6 @@
         <include
             layout="@layout/toolbar"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prendre rendez-vous"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/pant"
-            android:textSize="36sp"/>
-
     </LinearLayout>
 
     <RelativeLayout
@@ -37,6 +28,60 @@
             layout="@layout/nav_drawer"/>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="402dp"
+            android:layout_height="41dp"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:text="Prise de rendez-vous"
+            />
+
+        <Spinner
+            android:id="@+id/client"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="8dp"
+            />
+        <CalendarView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="304dp"
+
+            />
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="104dp"
+            android:layout_height="35dp"
+            android:text="Heur: "
+            android:textSize="25dp"
+
+            />
+
+        <Spinner
+            android:id="@+id/hours"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            />
+    </LinearLayout>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
