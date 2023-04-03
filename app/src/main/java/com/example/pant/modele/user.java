@@ -4,6 +4,7 @@ import android.content.Context;
 
 public class user {
 
+    public static String id_user;
     private String mLogin;
     private String mMotDePasse;
     private String mMetier;
