@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,8 +16,8 @@ import com.example.pant.R;
 import java.util.ArrayList;
 
 public class AppointAdaptaterFutur extends ArrayAdapter<Appoint> {
-    public AppointAdaptaterFutur(@NonNull Context context, ArrayList<Appoint> dataArrayList, int xml) {
-        super(context, xml, dataArrayList);
+    public AppointAdaptaterFutur(@NonNull Context context, ArrayList<Appoint> dataArrayList) {
+        super(context, R.layout.appoint_futur_list, dataArrayList);
     }
 
     @NonNull
@@ -33,14 +34,22 @@ public class AppointAdaptaterFutur extends ArrayAdapter<Appoint> {
         TextView type = view.findViewById(R.id.Type);
         TextView name = view.findViewById(R.id.name);
         TextView surname = view.findViewById(R.id.surname);
+        //Button info = view.findViewById(R.id.info);
 
         date.setText(listData.date);
         time.setText(listData.time);
         type.setText(listData.label);
         name.setText(listData.name);
         surname.setText(listData.surname);
+        //info.setId(listData.id_client);
+
+
 
         return view;
 
+    }
+
+    public interface ButtonAdaptaterListener {
+        public void onClickButton(Appoint item, int position);
     }
 }

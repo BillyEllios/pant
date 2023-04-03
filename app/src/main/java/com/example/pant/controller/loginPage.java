@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -18,7 +20,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pant.R;
-import com.example.pant.databinding.ActivityMainBinding;
 import com.example.pant.modele.Appoint;
 import com.example.pant.modele.AppointAdaptaterFutur;
 
@@ -49,7 +50,6 @@ public class loginPage extends AppCompatActivity {
     ArrayList<Appoint> dataArrayList = new ArrayList<>();
     Appoint appoint;
     ListView listView;
-    ActivityMainBinding binding;
 
     public String id_user = "c.omputer";
 
@@ -58,13 +58,10 @@ public class loginPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_login_page);
-        //setContentView(binding.getRoot());
 
         listView = findViewById(R.id.listview);
 
-        Toast.makeText(getApplicationContext(), "login method to proceed", Toast.LENGTH_SHORT).show();
 
         AppointFutur lg = new AppointFutur(loginPage.this);
         lg.execute();
@@ -93,8 +90,17 @@ public class loginPage extends AppCompatActivity {
             }
         }
 
-        listAdapter = new AppointAdaptaterFutur(loginPage.this, dataArrayList, R.layout.activity_login_page);
+        listAdapter = new AppointAdaptaterFutur(loginPage.this, dataArrayList);
         listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(loginPage.this, report.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         //navigation drawer
 

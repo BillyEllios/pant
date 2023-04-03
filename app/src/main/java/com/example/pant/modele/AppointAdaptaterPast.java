@@ -15,8 +15,8 @@ import com.example.pant.R;
 import java.util.ArrayList;
 
 public class AppointAdaptaterPast extends ArrayAdapter<Appoint> {
-    public AppointAdaptaterPast(@NonNull Context context, ArrayList<Appoint> dataArrayList, int xml) {
-        super(context, xml, dataArrayList);
+    public AppointAdaptaterPast(@NonNull Context context, ArrayList<Appoint> dataArrayList) {
+        super(context, R.layout.appoint_past_list, dataArrayList);
     }
 
     @NonNull

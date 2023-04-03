@@ -18,7 +18,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pant.R;
-import com.example.pant.databinding.ActivityMainBinding;
 import com.example.pant.modele.Appoint;
 import com.example.pant.modele.AppointAdaptaterFutur;
 import com.example.pant.modele.AppointAdaptaterPast;
@@ -50,7 +49,6 @@ public class appointPast extends AppCompatActivity {
     ArrayList<Appoint> dataArrayList = new ArrayList<>();
     Appoint appoint;
     ListView listView;
-    ActivityMainBinding binding;
 
     public String id_user="c.omputer";
     private JSONArray[] appointList;
@@ -58,7 +56,6 @@ public class appointPast extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_appoint_past);
 
         listView = findViewById(R.id.listview);
@@ -91,7 +88,7 @@ public class appointPast extends AppCompatActivity {
             }
         }
 
-        listAdapter = new AppointAdaptaterPast(appointPast.this, dataArrayList, R.layout.activity_appoint_past);
+        listAdapter = new AppointAdaptaterPast(appointPast.this, dataArrayList);
         listView.setAdapter(listAdapter);
 
         //navigation drawer
