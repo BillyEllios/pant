@@ -31,6 +31,8 @@
 
         </LinearLayout>
 
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +43,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/name_client"
+            android:id="@+id/fname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -57,7 +59,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/surname_client"
+            android:id="@+id/lname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -73,7 +75,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/email_client"
+            android:id="@+id/mail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -89,7 +91,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/cp_client"
+            android:id="@+id/cp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -105,7 +107,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/city_client"
+            android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -122,7 +124,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/adress_client"
+            android:id="@+id/adress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -138,7 +140,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/phone_client"
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -154,7 +156,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/label_client"
+            android:id="@+id/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

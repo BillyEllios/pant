@@ -2,17 +2,17 @@ package com.example.pant.modele;
 
 public class Client {
 
-    String FName;
-    String LName;
-    String Postal;
-    String Mail;
-    String City;
-    String Address;
-    String Phone;
-    String Label;
-    String Comment;
+    public static int id_client;
+    static String FName;
+    static String LName;
+    static String Postal;
+    static String Mail;
+    static String City;
+    static String Address;
+    static String Phone;
+    static String Label;
 
-    public Client(String fname, String lname, String postal, String mail, String city, String address, String phone, String label, String comment) {
+    public Client(String fname, String lname, String postal, String mail, String city, String address, String phone, String label) {
         FName = fname;
         LName = lname;
         Postal = postal;
@@ -21,9 +21,11 @@ public class Client {
         Address = address;
         Phone = phone;
         Label = label;
-        Comment = comment;
     }
 
+    /*public int getId_client() {
+        return id_client;
+    }*/
     public String getFName() {
         return FName;
     }
@@ -88,11 +90,4 @@ public class Client {
         Label = label;
     }
 
-    public String getComment() {
-        return Comment;
-    }
-
-    public void setComment(String comment) {
-        Comment = comment;
-    }
 }
