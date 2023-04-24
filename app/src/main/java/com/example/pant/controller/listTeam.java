@@ -1,7 +1,5 @@
 package com.example.pant.controller;
 
-import static com.example.pant.modele.user.getMetier;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -13,8 +11,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -22,9 +18,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pant.R;
-import com.example.pant.modele.Appoint;
-import com.example.pant.modele.AppointAdaptaterFutur;
-import com.example.pant.modele.Client;
+import com.example.pant.modele.Team;
+import com.example.pant.modele.TeamAdaptater;
 import com.example.pant.modele.user;
 
 import org.json.JSONArray;
@@ -44,28 +39,24 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-public class loginPage extends AppCompatActivity {
-
+public class listTeam extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
-    LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
+    LinearLayout appointfutur, appointpast, takeappoint, report, logout;
     ListAdapter listAdapter;
-    ArrayList<Appoint> dataArrayList = new ArrayList<>();
-
-    ListView listView;
+    ArrayList<Team> dataArrayList = new ArrayList<Team>();
 
     private String id_user = user.id_user;
-
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_page);
+        setContentView(R.layout.activity_list_team);
 
         listView = findViewById(R.id.listview);
 
-
-        AppointFutur lg = new AppointFutur(loginPage.this);
+        ListTeam lg = new ListTeam(listTeam.this);
         lg.execute();
 
         JSONObject reponse;
@@ -82,32 +73,20 @@ public class loginPage extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
-        int[] listIdClient = new int[data.length()];
 
-        for (int i = 0; i < data.length(); i++) {
-            try {
-                JSONObject obj = new JSONObject(data.getString(i));
-                Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"), obj.getInt("id_appoint"));
-                dataArrayList.add(appoint);
-                listIdClient[i]=obj.getInt("id_client");
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
+    for(int i = 0; i<data.length();i++)
+    {
+        try {
+            JSONObject obj = new JSONObject(data.getString(i));
+            Team team = new Team(obj.getString("mail_user"), obj.getString("name_user"), obj.getString("surname_user"));
+            dataArrayList.add(team);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
+    }
 
-        listAdapter = new AppointAdaptaterFutur(loginPage.this, dataArrayList);
-        listView.setAdapter(listAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(loginPage.this, ClientActivity.class);
-                Client.id_client=listIdClient[i];
-                intent.putExtra("id_client", listIdClient[i]);
-                startActivity(intent);
-            }
-        });
-
-
+    listAdapter = new TeamAdaptater(listTeam.this, dataArrayList);
+    listView.setAdapter(listAdapter);
 
         //navigation drawer
 
@@ -117,7 +96,6 @@ public class loginPage extends AppCompatActivity {
         appointpast = findViewById(R.id.appointpast);
         takeappoint = findViewById(R.id.takeappoint);
         report = findViewById(R.id.report);
-        team=findViewById(R.id.myteam);
         logout = findViewById(R.id.logout);
 
         menu.setOnClickListener(new View.OnClickListener() {
@@ -129,37 +107,25 @@ public class loginPage extends AppCompatActivity {
         appointfutur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recreate();
+                redirectActivity(listTeam.this, loginPage.class);
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                redirectActivity(loginPage.this, appointPast.class);
+                redirectActivity(listTeam.this, appointPast.class);
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                redirectActivity(loginPage.this, takeAppoint.class);
+                redirectActivity(listTeam.this, takeAppoint.class);
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                redirectActivity(loginPage.this, report.class);
-            }
-        });
-        team.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int d=getMetier();
-                if(getMetier()==2){
-                    redirectActivity(loginPage.this, listTeam.class);
-                }
-                else{
-                    Toast.makeText(loginPage.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
-                }
+                redirectActivity(listTeam.this, report.class);
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
@@ -168,8 +134,7 @@ public class loginPage extends AppCompatActivity {
                 finish();
             }
         });
-
-    }
+}
 
     public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
@@ -193,14 +158,13 @@ public class loginPage extends AppCompatActivity {
         super.onPause();
         closeDrawer(drawerLayout);
     }
-
-    class AppointFutur extends AsyncTask<String, Void, JSONObject> {
+    class ListTeam extends AsyncTask<String, Void, JSONObject> {
 
         Context context;
         ProgressDialog progressDialog;
 
 
-        AppointFutur(Context ctx) {
+        ListTeam(Context ctx) {
             this.context = ctx;
         }
 
@@ -211,7 +175,7 @@ public class loginPage extends AppCompatActivity {
 
         @Override
         protected JSONObject doInBackground(String... params) {
-            String appointfutur_url = "https://pant-gsb.ovh/api/appoint_futur_api.php";
+            String appointfutur_url = "https://pant-gsb.ovh/api/list_team_api.php";
             try {
                 URL url = new URL(appointfutur_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -273,6 +237,5 @@ public class loginPage extends AppCompatActivity {
                 Toast.makeText(context, "Failed to connect to server. Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
             }
         }
-        }
-
     }
+}

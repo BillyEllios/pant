@@ -7,7 +7,7 @@ public class user {
     public static String id_user;
     private String mLogin;
     private String mMotDePasse;
-    private String mMetier;
+    private static int mMetier;
 
     public String getLogin() {
         return mLogin;
@@ -25,17 +25,17 @@ public class user {
         mMotDePasse = motDePasse;
     }
 
-    public String getMetier() {
+    public static int getMetier() {
         return mMetier;
     }
 
-    public void setMetier(String metier) {
+    public void setMetier(int metier) {
         mMetier = metier;
     }
 
 
 
-    public user(String login, String motDePasse, String metier) {
+    public user(String login, String motDePasse, int     metier) {
         this.mLogin = login;
         this.mMotDePasse = motDePasse;
         this.mMetier = metier;
