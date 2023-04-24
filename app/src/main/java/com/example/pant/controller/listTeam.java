@@ -1,5 +1,7 @@
 package com.example.pant.controller;
 
+import static com.example.pant.modele.user.getMetier;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -42,7 +44,7 @@ import java.util.concurrent.ExecutionException;
 public class listTeam extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
-    LinearLayout appointfutur, appointpast, takeappoint, report, logout;
+    LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
     ListAdapter listAdapter;
     ArrayList<Team> dataArrayList = new ArrayList<Team>();
 
@@ -96,6 +98,7 @@ public class listTeam extends AppCompatActivity {
         appointpast = findViewById(R.id.appointpast);
         takeappoint = findViewById(R.id.takeappoint);
         report = findViewById(R.id.report);
+        team=findViewById(R.id.myteam);
         logout = findViewById(R.id.logout);
 
         menu.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +129,12 @@ public class listTeam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, report.class);
+            }
+        });
+        team.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recreate();
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {

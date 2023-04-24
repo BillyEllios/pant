@@ -1,5 +1,7 @@
 package com.example.pant.controller;
 
+import static com.example.pant.modele.user.getMetier;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -25,6 +27,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,7 +54,7 @@ public class takeAppoint extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ImageView menu;
-    LinearLayout appointfutur, appointpast, takeappoint, report, logout;
+    LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
     CalendarView date;
     Spinner hours;
     Spinner client;
@@ -70,6 +73,7 @@ public class takeAppoint extends AppCompatActivity {
         appointpast = findViewById(R.id.appointpast);
         takeappoint = findViewById(R.id.takeappoint);
         report = findViewById(R.id.report);
+        team=findViewById(R.id.myteam);
         logout = findViewById(R.id.logout);
 
         hours = (Spinner)  findViewById(R.id.hours);
@@ -138,6 +142,18 @@ public class takeAppoint extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(takeAppoint.this, report.class);
+            }
+        });
+        team.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int d=getMetier();
+                if(getMetier()==2){
+                    redirectActivity(takeAppoint.this, listTeam.class);
+                }
+                else{
+                    Toast.makeText(takeAppoint.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
+                }
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {

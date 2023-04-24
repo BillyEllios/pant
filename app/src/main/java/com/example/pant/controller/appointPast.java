@@ -1,5 +1,7 @@
 package com.example.pant.controller;
 
+import static com.example.pant.modele.user.getMetier;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -44,7 +46,7 @@ public class appointPast extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ImageView menu;
-    LinearLayout appointfutur, appointpast, takeappoint, report, logout;
+    LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
 
     ListAdapter listAdapter;
     ArrayList<Appoint> dataArrayList = new ArrayList<>();
@@ -100,6 +102,7 @@ public class appointPast extends AppCompatActivity {
         takeappoint = findViewById(R.id.takeappoint);
         report = findViewById(R.id.report);
         logout = findViewById(R.id.logout);
+        team=findViewById(R.id.myteam);
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +132,18 @@ public class appointPast extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(appointPast.this, report.class);
+            }
+        });
+        team.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int d=getMetier();
+                if(getMetier()==2){
+                    redirectActivity(appointPast.this, listTeam.class);
+                }
+                else{
+                    Toast.makeText(appointPast.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
+                }
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
