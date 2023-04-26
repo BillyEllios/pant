@@ -60,14 +60,14 @@ public class MainActivity extends AppCompatActivity {
                     } catch (UnsupportedEncodingException e) {
                         throw new RuntimeException(e);
                     }
-                    System.out.println(req);
+
                     api lg = new api(MainActivity.this, req, "https://pant-gsb.ovh/api/connection/connection.php");
 
                     lg.execute();
 
                     try {
                         JSONObject response= lg.get();
-                        System.out.println(response);
+
                         user.id_user = userVar;
                         if (response.getInt("status") == 200) {
                             lg.setToken(response.getJSONObject("data").getString("token"));

@@ -35,6 +35,9 @@
             android:name=".controller.loginPage"
             android:exported="false" />
         <activity
+            android:name=".controller.createClient"
+            android:exported="false" />
+        <activity
             android:name=".controller.MainActivity"
             android:exported="true">
             <intent-filter>

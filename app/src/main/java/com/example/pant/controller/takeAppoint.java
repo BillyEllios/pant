@@ -95,6 +95,7 @@ public class takeAppoint extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+
                 hoursVar = hours.getSelectedItem().toString();
                 String clients= client.getSelectedItem().toString();
                 String[] result = clients.split("-");
@@ -106,9 +107,16 @@ public class takeAppoint extends AppCompatActivity {
                     }
                 });
 
-                sendapi();
-                Intent loginPageIntent = new Intent(takeAppoint.this, loginPage.class);
-                startActivity(loginPageIntent);
+                try {
+                    sendapi();
+                    Intent takeAppoint = new Intent(takeAppoint.this, takeAppoint.class);
+                    startActivity(takeAppoint);
+                } catch (ExecutionException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
 
         });
@@ -248,7 +256,7 @@ public class takeAppoint extends AppCompatActivity {
             throw new RuntimeException(e);
         }
     }
-    private void sendapi() {
+    private void sendapi() throws ExecutionException, InterruptedException {
         String req = null;
         try {
             req = URLEncoder.encode("date", "UTF-8") + "=" + URLEncoder.encode(dateVar, "UTF-8") + "&" +
@@ -260,7 +268,8 @@ public class takeAppoint extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
-        api lg = new api(takeAppoint.this, req, "https://pant-gsb.ovh/api/appointment/takeAppointment.php");
-        lg.execute();
+        api takeAppoint = new api(takeAppoint.this, req, "https://pant-gsb.ovh/api/appointment/takeAppointment.php");
+        takeAppoint.execute();
+
     }
 }
