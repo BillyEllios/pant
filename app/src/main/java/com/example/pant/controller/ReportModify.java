@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.example.pant.R;
 import com.example.pant.modele.Report;
 import com.example.pant.modele.ReportAdaptater;
+import com.example.pant.modele.user;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,9 +50,10 @@ public class ReportModify extends AppCompatActivity {
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
     ListView listView;
-    public String id_user = "c.omputer";
+    public String id_user = user.id_user;
     Spinner interest;
     EditText report_modif;
+    int id_report = 36;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +187,7 @@ public class ReportModify extends AppCompatActivity {
                     httpURLConnection.setDoInput(true);
                     OutputStream os = httpURLConnection.getOutputStream();
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                    String data = URLEncoder.encode("id_user", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(id_user), "UTF-8");
+                    String data = URLEncoder.encode("id_report", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(id_report), "UTF-8");
                     bufferedWriter.write(data);
                     bufferedWriter.flush();
                     bufferedWriter.close();

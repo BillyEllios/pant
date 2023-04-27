@@ -26,6 +26,7 @@ import com.example.pant.modele.AppointAdaptaterFutur;
 import com.example.pant.modele.Client;
 import com.example.pant.modele.Report;
 import com.example.pant.modele.ReportAdaptater;
+import com.example.pant.modele.user;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,7 +52,7 @@ public class report extends AppCompatActivity {
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
     ArrayList<Report> dataArrayList = new ArrayList<>();
     ListView listView;
-    public String id_user = "c.omputer";
+    public String id_user = user.id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

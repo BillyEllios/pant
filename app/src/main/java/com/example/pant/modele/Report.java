@@ -11,7 +11,6 @@ public class Report {
         this.Rapport = rapport;
         this.Interet = interet;
         this.Date = Date;
-        this.id_client = id_client;
     }
 
     public String getRapport() {
@@ -26,7 +25,7 @@ public class Report {
         return Date;
     }
 
-    public int getId_client() {
-        return id_client;
+    public int getId_report() {
+        return id_report;
     }
 }
