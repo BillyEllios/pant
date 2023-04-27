@@ -63,7 +63,7 @@
             android:id="@+id/textView"
             android:layout_width="104dp"
             android:layout_height="35dp"
-            android:text="Heur: "
+            android:text="Heure: "
             android:textSize="25dp"
 
             />
@@ -79,7 +79,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="Valider"
             />
     </LinearLayout>
 

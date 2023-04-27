@@ -1,6 +1,7 @@
 package com.example.pant.modele;
 
 public class Team {
+
     String mail;
     String name;
     String surname;
@@ -10,4 +11,16 @@ public class Team {
         this.name=name;
         this.surname=surname;
     }
+    public String getMail() {
+        return mail;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
 }

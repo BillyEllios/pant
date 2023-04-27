@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Pant"
         tools:targetApi="31">
         <activity
-            android:name=".listTeam"
+            android:name=".controller.listTeam"
             android:exported="false" />
         <activity
             android:name=".controller.ReportModify"
