@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.example.pant.R;
 import com.example.pant.modele.Appoint;
 import com.example.pant.modele.AppointAdaptaterFutur;
+import com.example.pant.modele.Client;
 import com.example.pant.modele.Report;
 import com.example.pant.modele.ReportAdaptater;
 
@@ -49,9 +51,6 @@ public class report extends AppCompatActivity {
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
     ArrayList<Report> dataArrayList = new ArrayList<>();
     ListView listView;
-
-    Button Modify;
-
     public String id_user = "c.omputer";
 
     @Override
@@ -60,7 +59,6 @@ public class report extends AppCompatActivity {
         setContentView(R.layout.activity_report);
 
         listView = findViewById(R.id.listView);
-        Modify = findViewById(R.id.modify);
 
         Toast.makeText(getApplicationContext(), "login method to proceed", Toast.LENGTH_SHORT).show();
 
@@ -81,11 +79,15 @@ public class report extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
+        int[] listIdReport = new int[data.length()];
+
+
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
                 Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("date_appoint"));
                 dataArrayList.add(report);
+                listIdReport[i]=obj.getInt("id_report");
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -94,7 +96,15 @@ public class report extends AppCompatActivity {
         ReportAdaptater listAdapter = new ReportAdaptater(report.this, dataArrayList, R.layout.report_list_view);
         listView.setAdapter(listAdapter);
 
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(report.this, ReportModify.class);
+                Report.id_report=listIdReport[i];
+                intent.putExtra("id_report", listIdReport[i]);
+                startActivity(intent);
+            }
+        });
 
         drawerLayout = findViewById(R.id.drawerLayout);
         menu = findViewById(R.id.menu);

@@ -1,7 +1,7 @@
 package com.example.pant.modele;
 
 public class Report {
-
+    public static int id_report;
     String Rapport;
     String Interet;
     String Date;
