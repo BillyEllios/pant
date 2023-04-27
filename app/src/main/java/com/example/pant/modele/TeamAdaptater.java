@@ -25,16 +25,16 @@ public class TeamAdaptater extends ArrayAdapter<Team> {
         Team listData = getItem(position);
 
         if(view == null){
-            view = LayoutInflater.from(getContext()).inflate(R.layout.appoint_futur_list, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.team_list, parent, false);
         }
 
         TextView mail = view.findViewById(R.id.ListMail);
         TextView name = view.findViewById(R.id.Listname);
         TextView surname = view.findViewById(R.id.Listsurname);
 
-        mail.setText(listData.mail);
-        name.setText(listData.name);
-        surname.setText(listData.surname);
+        mail.setText(listData.getMail());
+        name.setText(listData.getName());
+        surname.setText(listData.getSurname());
 
 
 

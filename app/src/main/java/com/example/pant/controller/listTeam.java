@@ -46,7 +46,7 @@ public class listTeam extends AppCompatActivity {
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
     ListAdapter listAdapter;
-    ArrayList<Team> dataArrayList = new ArrayList<Team>();
+    ArrayList<Team> dataArrayList = new ArrayList<>();
 
     private String id_user = user.id_user;
     ListView listView;
@@ -80,7 +80,7 @@ public class listTeam extends AppCompatActivity {
     {
         try {
             JSONObject obj = new JSONObject(data.getString(i));
-            Team team = new Team(obj.getString("mail_user"), obj.getString("name_user"), obj.getString("surname_user"));
+            Team team = new Team(obj.getString("mail_user"), obj.getString("name_user"), obj.getString("fname_user"));
             dataArrayList.add(team);
         } catch (JSONException e) {
             throw new RuntimeException(e);

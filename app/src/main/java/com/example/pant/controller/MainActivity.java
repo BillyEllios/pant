@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         user.id_user = userVar;
                         if (response.getInt("status") == 200) {
                             lg.setToken(response.getJSONObject("data").getString("token"));
+                            user.setMetier(Integer.parseInt(response.getJSONObject("data").getString("id_job")));
                             Intent loginPageIntent = new Intent(MainActivity.this, loginPage.class);
                             startActivity(loginPageIntent);
                         }if (response.getInt("status") == 400){

@@ -29,7 +29,7 @@ public class user {
         return mMetier;
     }
 
-    public void setMetier(int metier) {
+    public static void setMetier(int metier) {
         mMetier = metier;
     }
 

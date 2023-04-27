@@ -67,15 +67,6 @@ public class takeAppoint extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_appoint);
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        menu = findViewById(R.id.menu);
-        appointfutur = findViewById(R.id.appointfutur);
-        appointpast = findViewById(R.id.appointpast);
-        takeappoint = findViewById(R.id.takeappoint);
-        report = findViewById(R.id.report);
-        team=findViewById(R.id.myteam);
-        logout = findViewById(R.id.logout);
-
         hours = (Spinner)  findViewById(R.id.hours);
         date = findViewById(R.id.date);
         client = (Spinner) findViewById(R.id.client);
@@ -121,6 +112,17 @@ public class takeAppoint extends AppCompatActivity {
 
         });
 
+
+        //navigation drawer
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        menu = findViewById(R.id.menu);
+        appointfutur = findViewById(R.id.appointfutur);
+        appointpast = findViewById(R.id.appointpast);
+        takeappoint = findViewById(R.id.takeappoint);
+        report = findViewById(R.id.report);
+        team=findViewById(R.id.myteam);
+        logout = findViewById(R.id.logout);
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
