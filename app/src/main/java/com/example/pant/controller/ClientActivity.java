@@ -158,7 +158,7 @@ public class ClientActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                redirectActivity(ClientActivity.this, MainActivity.class);
             }
         });
     }
