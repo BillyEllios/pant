@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.example.pant.R;
 import com.example.pant.modele.Report;
 import com.example.pant.modele.ReportAdaptater;
+import com.example.pant.modele.api;
 import com.example.pant.modele.user;
 
 import org.json.JSONArray;
@@ -39,6 +40,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -51,10 +53,9 @@ public class ReportModify extends AppCompatActivity {
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
     Button button;
-    public String id_user = user.id_user;
     Spinner interest;
     EditText report_modif;
-    String choice;
+    String choice,update_report;
     int id_report = Report.id_report;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +80,19 @@ public class ReportModify extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 choice = interest.getSelectedItem().toString();
-                ModifyReport lg = new ReportModify(ReportModify.this);
-                lg.execute();
+                update_report = report_modif.getText().toString();
+
+                try {
+                    sendapi();
+                    Intent updateReport = new Intent(ReportModify.this, report.class);
+                    startActivity(updateReport);
+                } catch (ExecutionException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
+
         });
 
 
@@ -167,87 +178,25 @@ public class ReportModify extends AppCompatActivity {
         dataAdapteInterest = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arrayInterest);
         interest.setAdapter(dataAdapteInterest);
-
-
-    class ModifyReport extends AsyncTask<String, Void, JSONObject> {
-
-        Context context;
-        ProgressDialog progressDialog;
-
-
-        ModifyReport(Context ctx) {
-            this.context = ctx;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(context, "", "Récupération des données");
-        }
-
-        @Override
-        protected JSONObject doInBackground(String... params) {
-            String modifyreport_url = "https://pant-gsb.ovh/api/update_report_api.php";
-            try {
-                URL url = new URL(modifyreport_url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setConnectTimeout(10000);
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-                OutputStream os = httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                String data = URLEncoder.encode("id_report", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(id_report), "UTF-8");
-                bufferedWriter.write(data);
-                bufferedWriter.flush();
-                bufferedWriter.close();
-                os.close();
-
-                int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    InputStream inputStream = httpURLConnection.getInputStream();
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = bufferedReader.readLine()) != null) {
-                        response.append(line);
-                    }
-                    bufferedReader.close();
-                    inputStream.close();
-
-                    JSONObject jsonObject = new JSONObject(response.toString());
-                    return jsonObject;
-                } else {
-                    return new JSONObject(String.valueOf(HttpURLConnection.HTTP_BAD_REQUEST));
-                }
-
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-                try {
-                    return new JSONObject(String.valueOf(HttpURLConnection.HTTP_BAD_REQUEST));
-                } catch (JSONException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        }
-
-
-        protected void onPostExecute(JSONObject jsonObject) {
-            progressDialog.dismiss();
-            int status = 0;
-            try {
-                status = jsonObject.getInt("status");
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
-
-            if (status == HttpURLConnection.HTTP_OK) {
-                Toast.makeText(context, "cbon", Toast.LENGTH_LONG).show();
-            } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
-                Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(context, "Failed to connect to server. Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
-            }
-        }
-    }
 }
+
+    private void sendapi() throws ExecutionException, InterruptedException {
+        String req = null;
+        /*
+        report_update = report_modif.toString();
+        report_modif = findViewById(R.id.report_modif);
+        */
+        try {
+            req = URLEncoder.encode("id_report", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(id_report)) + "&" +
+                    URLEncoder.encode("interest", "UTF-8") + "=" + URLEncoder.encode(choice, "UTF-8")+ "&" +
+                    URLEncoder.encode("summary", "UTF-8") + "=" + URLEncoder.encode(update_report, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(req);
+        api updateReport = new api(ReportModify.this, req, "https://pant-gsb.ovh/api/update_report_api.php");
+        updateReport.execute();
+
+
+    }
 }
