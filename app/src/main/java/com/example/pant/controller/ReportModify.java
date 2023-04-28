@@ -79,8 +79,7 @@ public class ReportModify extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 choice = interest.getSelectedItem().toString();
-                ModifyReport lg = new ReportModify(ReportModify.this);
-                lg.execute();
+               //ModifieReport();
             }
         });
 

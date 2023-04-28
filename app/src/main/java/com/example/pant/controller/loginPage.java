@@ -104,6 +104,7 @@ public class loginPage extends AppCompatActivity {
                 Client.id_client=listIdClient[i];
                 intent.putExtra("id_client", listIdClient[i]);
                 startActivity(intent);
+                finish();
             }
         });
 

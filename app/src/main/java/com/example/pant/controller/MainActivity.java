@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                         }if (response.getInt("status") == 400){
                             Intent loginPageIntent = new Intent(MainActivity.this, MainActivity.class);
                             startActivity(loginPageIntent);
-
+                            finish();
                         }
                     } catch (ExecutionException e) {
                         throw new RuntimeException(e);
