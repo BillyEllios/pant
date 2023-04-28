@@ -58,7 +58,6 @@ public class takeAppoint extends AppCompatActivity {
     CalendarView date;
     Spinner hours;
     Spinner client;
-
     String clientVar,hoursVar,dateVar;
     Button button ;
 
