@@ -7,9 +7,9 @@ public class Appoint {
     String label;
     String name;
     String surname;
-    int id_client;
+    public static int id_client;
 
-    int id_appoint;
+    public static int id_appoint;
 
     public Appoint(String date, String time, String label, String name, String surname, int id_client, int id_appoint) {
         this.date = date;
