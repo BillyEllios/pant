@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -23,6 +24,7 @@ import com.example.pant.R;
 import com.example.pant.modele.Appoint;
 import com.example.pant.modele.AppointAdaptaterFutur;
 import com.example.pant.modele.AppointAdaptaterPast;
+import com.example.pant.modele.Client;
 import com.example.pant.modele.user;
 
 import org.json.JSONArray;
@@ -80,6 +82,9 @@ public class appointPast extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
+        int[] listIdClient = new int[data.length()];
+        int[] listIdAppoint = new int[data.length()];
+
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
@@ -92,6 +97,17 @@ public class appointPast extends AppCompatActivity {
 
         listAdapter = new AppointAdaptaterPast(appointPast.this, dataArrayList);
         listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(appointPast.this, ClientActivity.class);
+                Appoint.id_client=listIdClient[i];
+                Appoint.id_appoint=listIdAppoint[i];
+                intent.putExtra("id_client", listIdClient[i]);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         //navigation drawer
 
