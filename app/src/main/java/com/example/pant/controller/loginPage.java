@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pant.R;
@@ -80,6 +81,11 @@ public class loginPage extends AppCompatActivity {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+        if(data.length()==0){
+            String TextAfficher="Vous n'avez aucun rendez-vous de prévu";
+            TextView textVide = findViewById(R.id.textvide);
+            textVide.setText(TextAfficher);
         }
 
         int[] listIdClient = new int[data.length()];
