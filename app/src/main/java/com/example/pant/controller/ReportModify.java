@@ -62,15 +62,6 @@ public class ReportModify extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_modify);
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        menu = findViewById(R.id.menu);
-        appointfutur = findViewById(R.id.appointfutur);
-        appointpast = findViewById(R.id.appointpast);
-        takeappoint = findViewById(R.id.takeappoint);
-        report = findViewById(R.id.report);
-        team=findViewById(R.id.myteam);
-        logout = findViewById(R.id.logout);
-
         report_modif = findViewById(R.id.report_modif);
         interest = (Spinner) findViewById(R.id.interest);
         button = findViewById(R.id.button);
@@ -95,6 +86,15 @@ public class ReportModify extends AppCompatActivity {
 
         });
 
+        // Navigation Drawer
+        drawerLayout = findViewById(R.id.drawerLayout);
+        menu = findViewById(R.id.menu);
+        appointfutur = findViewById(R.id.appointfutur);
+        appointpast = findViewById(R.id.appointpast);
+        takeappoint = findViewById(R.id.takeappoint);
+        report = findViewById(R.id.report);
+        team=findViewById(R.id.myteam);
+        logout = findViewById(R.id.logout);
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
