@@ -123,30 +123,35 @@ public class report extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openDrawer(drawerLayout);
+                finish();
             }
         });
         appointfutur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(report.this, loginPage.class);
+                finish();
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(report.this, appointPast.class);
+                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 recreate();
+                finish();
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(report.this, report.class);
+                finish();
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +160,7 @@ public class report extends AppCompatActivity {
                 int d=getMetier();
                 if(getMetier()==2){
                     redirectActivity(report.this, listTeam.class);
+                    finish();
                 }
                 else{
                     Toast.makeText(report.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
