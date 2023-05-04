@@ -106,6 +106,7 @@ public class report extends AppCompatActivity {
                 Report.id_report=listIdReport[i];
                 intent.putExtra("summary", listSummary[i]);
                 startActivity(intent);
+                finish();
             }
         });
 
