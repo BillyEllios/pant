@@ -67,6 +67,9 @@ public class ReportModify extends AppCompatActivity {
         button = findViewById(R.id.button);
         loadSpinnerData();
 
+        String ReportData = getIntent().getStringExtra("summary");
+        report_modif.setText(ReportData);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

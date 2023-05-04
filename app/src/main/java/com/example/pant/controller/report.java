@@ -81,6 +81,7 @@ public class report extends AppCompatActivity {
         }
 
         int[] listIdReport = new int[data.length()];
+        String[] listSummary = new String[data.length()];
 
 
         for (int i = 0; i < data.length(); i++) {
@@ -89,6 +90,7 @@ public class report extends AppCompatActivity {
                 Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("date_repport"));
                 dataArrayList.add(report);
                 listIdReport[i]=obj.getInt("id_report");
+                listSummary[i]=obj.getString("summary_report");
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -102,6 +104,7 @@ public class report extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(report.this, ReportModify.class);
                 Report.id_report=listIdReport[i];
+                intent.putExtra("summary", listSummary[i]);
                 startActivity(intent);
             }
         });
