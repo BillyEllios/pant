@@ -101,6 +101,7 @@ public class takeAppoint extends AppCompatActivity {
                     sendapi();
                     Intent takeAppoint = new Intent(takeAppoint.this, loginPage.class);
                     startActivity(takeAppoint);
+                    finish();
                 } catch (ExecutionException e) {
                     throw new RuntimeException(e);
                 } catch (InterruptedException e) {
