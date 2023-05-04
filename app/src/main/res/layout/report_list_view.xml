@@ -45,7 +45,8 @@
                 android:id="@+id/rapport"
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:layout_height="30dp"
+                android:layout_height="100dp"
+                android:padding="10dp"
                 android:layout_marginTop="30dp"
                 android:text="Report"
                 android:textSize="20sp" />
