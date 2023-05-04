@@ -99,7 +99,7 @@ public class takeAppoint extends AppCompatActivity {
 
                 try {
                     sendapi();
-                    Intent takeAppoint = new Intent(takeAppoint.this, takeAppoint.class);
+                    Intent takeAppoint = new Intent(takeAppoint.this, loginPage.class);
                     startActivity(takeAppoint);
                 } catch (ExecutionException e) {
                     throw new RuntimeException(e);
