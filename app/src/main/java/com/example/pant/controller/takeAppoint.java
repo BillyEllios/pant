@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -55,11 +57,12 @@ public class takeAppoint extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
-    CalendarView date;
+        CalendarView date;
     Spinner hours;
     Spinner client;
     String clientVar,hoursVar,dateVar;
     Button button ;
+    private TextView dateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,28 +78,36 @@ public class takeAppoint extends AppCompatActivity {
 
         loadSpinnerData();
 
-        long selectedDateInMillis = date.getDate();
-        Date selectedDate = new Date(selectedDateInMillis);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        dateVar = sdf.format(selectedDate);
-
+        date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                // construire une chaîne de caractères pour afficher la date
+                dateVar = year + "-" + (month+1) + "-" + dayOfMonth;
+                System.out.println(dateVar);
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                    @Override
+                    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                        // construire une chaîne de caractères pour afficher la date
+                        dateVar = year + "-" + (month+1) + "-" + dayOfMonth;
+
+                    }
+                });
+
 
                 hoursVar = hours.getSelectedItem().toString();
                 String clients= client.getSelectedItem().toString();
                 String[] result = clients.split("-");
                 clientVar = result[0];
-                date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                        dateVar = String.format("%04d-%02d-%02d", year, month+1, dayOfMonth);
-                    }
-                });
 
+
+                System.out.println(dateVar);
                 try {
                     sendapi();
                     Intent takeAppoint = new Intent(takeAppoint.this, loginPage.class);
@@ -278,6 +289,7 @@ public class takeAppoint extends AppCompatActivity {
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
+
 
         api takeAppoint = new api(takeAppoint.this, req, "https://pant-gsb.ovh/api/appointment/takeAppointment.php");
         takeAppoint.execute();
