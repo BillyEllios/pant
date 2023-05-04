@@ -271,7 +271,6 @@ public class appointPast extends AppCompatActivity {
             }
 
             if (status == HttpURLConnection.HTTP_OK) {
-                Toast.makeText(context, "cbon", Toast.LENGTH_LONG).show();
             } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
                 Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show();
             } else {
