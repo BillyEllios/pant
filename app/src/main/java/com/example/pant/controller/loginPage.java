@@ -137,7 +137,6 @@ public class loginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 recreate();
-                finish();
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {

@@ -144,7 +144,6 @@ public class report extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 recreate();
-                finish();
             }
         });
         report.setOnClickListener(new View.OnClickListener() {

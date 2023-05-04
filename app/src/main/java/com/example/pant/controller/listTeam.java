@@ -139,7 +139,6 @@ public class listTeam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 recreate();
-                finish();
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {

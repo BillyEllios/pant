@@ -120,7 +120,7 @@ public class ReportModify extends AppCompatActivity {
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recreate();
+                redirectActivity(ReportModify.this, takeAppoint.class);
                 finish();
             }
         });

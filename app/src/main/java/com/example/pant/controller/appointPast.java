@@ -144,7 +144,6 @@ public class appointPast extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 recreate();
-                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
