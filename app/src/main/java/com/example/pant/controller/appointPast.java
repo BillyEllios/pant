@@ -66,6 +66,7 @@ public class appointPast extends AppCompatActivity {
         listView = findViewById(R.id.listview);
 
 
+        //execution de l'api
         AppointPast lg = new AppointPast(appointPast.this);
         lg.execute();
 
@@ -82,12 +83,15 @@ public class appointPast extends AppCompatActivity {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        //si il n'y a pas de compte rendu (donc l'api renvoie rien)
         if(data.length()==0){
             String TextAfficher="Vous n'avez aucun compte-rendu à saisir!";
             TextView textVide = findViewById(R.id.textvide);
             textVide.setText(TextAfficher);
         }
 
+        //création d'une liste réc upérent tous les idclient et les idappoints
         int[] listIdClient = new int[data.length()];
         int[] listIdAppoint = new int[data.length()];
 
@@ -109,6 +113,7 @@ public class appointPast extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(appointPast.this, makeReport.class);
+                //définition des variables static grâce aux listes
                 Appoint.id_client=listIdClient[i];
                 Appoint.id_appoint=listIdAppoint[i];
                 startActivity(intent);
@@ -276,7 +281,7 @@ public class appointPast extends AppCompatActivity {
 
             if (status == HttpURLConnection.HTTP_OK) {
             } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
-                Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Erreur, réessayer", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(context, "Failed to connect to server. Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
             }

@@ -43,15 +43,12 @@ public class ClientActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
-    //int id_client= getIntent().getIntExtra("id_client", 0);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_client);
-
-        String id_client=getIntent().getStringExtra("id_client");
 
         TextView txtFName = findViewById(R.id.fname);
         TextView txtLName = findViewById(R.id.lname);
@@ -61,8 +58,6 @@ public class ClientActivity extends AppCompatActivity {
         TextView txtAddress = findViewById(R.id.adress);
         TextView txtPhone = findViewById(R.id.phone);
         TextView txtLabel = findViewById(R.id.label);
-
-        //int id_client=getIntent().getIntExtra("id_client", 0);
 
 
         InfoClient lg = new InfoClient(ClientActivity.this);
@@ -86,11 +81,13 @@ public class ClientActivity extends AppCompatActivity {
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
-                client = new Client(/*client.getId_client(),*/ obj.getString("nom_client"), obj.getString("prenom_client"), obj.getString("pc_client"), obj.getString("email_client"), obj.getString("city_client"), obj.getString("address_client"), obj.getString("phone_client"), obj.getString("label_client"));
+                client = new Client(obj.getString("nom_client"), obj.getString("prenom_client"), obj.getString("pc_client"), obj.getString("email_client"), obj.getString("city_client"), obj.getString("address_client"), obj.getString("phone_client"), obj.getString("label_client"));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
         }
+
+        //je change mon xml avec les données de l'api
         txtFName.setText(client.getFName());
         txtLName.setText(client.getLName());
         txtMail.setText(client.getMail());
