@@ -7,42 +7,22 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.pant.R;
 import com.example.pant.modele.Report;
-import com.example.pant.modele.ReportAdaptater;
 import com.example.pant.modele.api;
-import com.example.pant.modele.user;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -63,7 +43,7 @@ public class ReportModify extends AppCompatActivity {
         setContentView(R.layout.activity_report_modify);
 
         report_modif = findViewById(R.id.report_modif);
-        interest = (Spinner) findViewById(R.id.interest);
+        interest = findViewById(R.id.interest);
         button = findViewById(R.id.button);
         loadSpinnerData();
 
@@ -190,10 +170,6 @@ public class ReportModify extends AppCompatActivity {
 
     private void sendapi() throws ExecutionException, InterruptedException {
         String req = null;
-        /*
-        report_update = report_modif.toString();
-        report_modif = findViewById(R.id.report_modif);
-        */
         try {
             req = URLEncoder.encode("id_report", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(id_report)) + "&" +
                     URLEncoder.encode("interest", "UTF-8") + "=" + URLEncoder.encode(choice, "UTF-8")+ "&" +
