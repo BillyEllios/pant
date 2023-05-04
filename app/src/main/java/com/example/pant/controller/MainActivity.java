@@ -16,7 +16,9 @@ import android.widget.Toast;
 import java.io.UnsupportedEncodingException;
 
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
 import java.net.URLEncoder;
+import java.net.UnknownHostException;
 import java.util.concurrent.ExecutionException;
 
 import com.example.pant.R;
@@ -41,9 +43,16 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.MDP);
         login = findViewById(R.id.button);
 
+
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
+                try
+
+                {
                 userVar = username.getText().toString();
                 passVar = password.getText().toString();
 
@@ -69,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject response= lg.get();
 
                         user.id_user = userVar;
+
                         if (response.getInt("status") == 200) {
                             lg.setToken(response.getJSONObject("data").getString("token"));
                             user.setMetier(Integer.parseInt(response.getJSONObject("data").getString("id_job")));
@@ -90,7 +100,23 @@ public class MainActivity extends AppCompatActivity {
 
                     //lg.setToken();
                 }
+            } catch (Exception e){
+                    Toast.makeText(MainActivity.this , "attention vous n'avez pas de connection internet", Toast.LENGTH_LONG).show();
+                    Intent loginPageIntent = new Intent(MainActivity.this, MainActivity.class);
+                    startActivity(loginPageIntent);
+                }
             }
+
         });
+
+
+    }
+    public static boolean isInternetAvailable() {
+        try {
+            InetAddress.getByName("google.com");
+            return true;
+        } catch (UnknownHostException e) {
+            return false;
+        }
     }
 }
