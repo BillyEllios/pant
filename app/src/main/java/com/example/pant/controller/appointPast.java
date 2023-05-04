@@ -90,6 +90,8 @@ public class appointPast extends AppCompatActivity {
                 JSONObject obj = new JSONObject(data.getString(i));
                 Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"), obj.getInt("id_appoint"));
                 dataArrayList.add(appoint);
+                listIdClient[i]=obj.getInt("id_client");
+                listIdAppoint[i]=obj.getInt("id_appoint");
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -100,10 +102,9 @@ public class appointPast extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(appointPast.this, ClientActivity.class);
+                Intent intent = new Intent(appointPast.this, makeReport.class);
                 Appoint.id_client=listIdClient[i];
                 Appoint.id_appoint=listIdAppoint[i];
-                intent.putExtra("id_client", listIdClient[i]);
                 startActivity(intent);
                 finish();
             }

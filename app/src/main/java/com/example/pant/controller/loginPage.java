@@ -87,7 +87,7 @@ public class loginPage extends AppCompatActivity {
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
-                Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"), obj.getInt("id_appoint"));
+                Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"), 0);
                 dataArrayList.add(appoint);
                 listIdClient[i]=obj.getInt("id_client");
             } catch (JSONException e) {
