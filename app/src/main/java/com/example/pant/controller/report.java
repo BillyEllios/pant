@@ -86,7 +86,7 @@ public class report extends AppCompatActivity {
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
-                Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("date_appoint"));
+                Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("date_repport"));
                 dataArrayList.add(report);
                 listIdReport[i]=obj.getInt("id_report");
             } catch (JSONException e) {

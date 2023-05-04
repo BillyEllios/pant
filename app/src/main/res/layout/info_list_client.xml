@@ -1,136 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/black"
-        android:text="Nom" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Nom"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/fname"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Name"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/fname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="data" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Prénom"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/lname"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Last Name"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:textColor="@color/black"
-        android:text="Prénom" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Mail"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Email"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Code Postal"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/cp"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Post Code"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/lname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="data" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Ville"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="City"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="95dp"
-        android:textColor="@color/black"
-        android:text="Mail"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Adresse"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/adress"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Address"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="119dp"
-        android:text="data"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Téléphone"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Phone"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:textColor="@color/black"
-        android:text="Code Postal"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Label"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Label"
+                android:textSize="20sp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/cp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:text="data" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:textColor="@color/black"
-        android:text="ville"/>
-
-    <TextView
-        android:id="@+id/city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="235dp"
-        android:text="comment"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="255dp"
-        android:textColor="@color/black"
-        android:text="adresse"/>
-
-    <TextView
-        android:id="@+id/adress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="285dp"
-        android:text="data"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="305dp"
-        android:textColor="@color/black"
-        android:text="Téléphone"/>
-
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="325dp"
-        android:text="data"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="355dp"
-        android:textColor="@color/black"
-        android:text="label"/>
-
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="385dp"
-        android:text="data"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="405dp"
-        android:textColor="@color/black"
-        android:text="Commentaire"/>
-
-    <TextView
-        android:id="@+id/comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="435dp"
-        android:text="data"/>
-
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Commentaire"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Comment"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
