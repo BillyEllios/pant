@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pant.R;
@@ -81,13 +82,18 @@ public class loginPage extends AppCompatActivity {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        if(data.length()==0){
+            String TextAfficher="Vous n'avez aucun rendez-vous de prévu";
+            TextView textVide = findViewById(R.id.textvide);
+            textVide.setText(TextAfficher);
+        }
 
         int[] listIdClient = new int[data.length()];
 
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
-                Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"),0);
+                Appoint appoint = new Appoint(obj.getString("date_appoint"), obj.getString("hour_appoint"), obj.getString("label_client"), obj.getString("nom_client"), obj.getString("prenom_client"), obj.getInt("id_client"), 0);
                 dataArrayList.add(appoint);
                 listIdClient[i]=obj.getInt("id_client");
             } catch (JSONException e) {
@@ -137,18 +143,21 @@ public class loginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(loginPage.this, appointPast.class);
+                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(loginPage.this, takeAppoint.class);
+                finish();
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(loginPage.this, report.class);
+                finish();
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +166,7 @@ public class loginPage extends AppCompatActivity {
                 int d=getMetier();
                 if(getMetier()==2){
                     redirectActivity(loginPage.this, listTeam.class);
+                    finish();
                 }
                 else{
                     Toast.makeText(loginPage.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
@@ -267,7 +277,6 @@ public class loginPage extends AppCompatActivity {
             }
 
             if (status == HttpURLConnection.HTTP_OK) {
-                Toast.makeText(context, "données chargées", Toast.LENGTH_LONG).show();
             } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
                 Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show();
             } else {

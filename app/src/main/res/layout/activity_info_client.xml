@@ -22,150 +22,203 @@
             android:layout_height="wrap_content"
             android:text="Votre client"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/pant"
             android:textSize="36sp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Nom"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/fname"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Name"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Prénom"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/lname"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Last Name"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Mail"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Email"
+                android:textSize="20sp"  />
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Code Postal"
+                android:textSize="20sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nom:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/cp"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Post Code"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/fname"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="name"
-            android:textSize="16sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prénom:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Ville"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="City"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/lname"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="surname"
-            android:textSize="16sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Adresse"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/adress"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Address"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/mail"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="mail"
-            android:textSize="16sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Code Postal:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Téléphone"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Phone"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/cp"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="cp"
-            android:textSize="16sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ville:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:id="@+id/city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="city"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adresse:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:id="@+id/adress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="adress"
-            android:textSize="16sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Téléphone:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:id="@+id/phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="phone"
-            android:textSize="16sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Label:"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:id="@+id/label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="label"
-            android:textSize="16sp" />
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Label"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Label"
+                android:textSize="20sp" />
+        </RelativeLayout>
     </LinearLayout>
-
-
 
     <RelativeLayout
         android:layout_width="300dp"

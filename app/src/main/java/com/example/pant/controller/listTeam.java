@@ -111,24 +111,28 @@ public class listTeam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, loginPage.class);
+                finish();
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, appointPast.class);
+                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, takeAppoint.class);
+                finish();
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, report.class);
+                finish();
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
@@ -239,7 +243,6 @@ public class listTeam extends AppCompatActivity {
             }
 
             if (status == HttpURLConnection.HTTP_OK) {
-                Toast.makeText(context, "données chargées", Toast.LENGTH_LONG).show();
             } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
                 Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show();
             } else {

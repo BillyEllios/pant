@@ -81,14 +81,16 @@ public class report extends AppCompatActivity {
         }
 
         int[] listIdReport = new int[data.length()];
+        String[] listSummary = new String[data.length()];
 
 
         for (int i = 0; i < data.length(); i++) {
             try {
                 JSONObject obj = new JSONObject(data.getString(i));
-                Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("date_appoint"));
+                Report report = new Report(obj.getString("summary_report"), obj.getString("interest_report"), obj.getString("date_repport"));
                 dataArrayList.add(report);
                 listIdReport[i]=obj.getInt("id_report");
+                listSummary[i]=obj.getString("summary_report");
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -102,7 +104,9 @@ public class report extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(report.this, ReportModify.class);
                 Report.id_report=listIdReport[i];
+                intent.putExtra("summary", listSummary[i]);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -129,12 +133,14 @@ public class report extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(report.this, loginPage.class);
+                finish();
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(report.this, appointPast.class);
+                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +153,7 @@ public class report extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(report.this, report.class);
+                finish();
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +162,7 @@ public class report extends AppCompatActivity {
                 int d=getMetier();
                 if(getMetier()==2){
                     redirectActivity(report.this, listTeam.class);
+                    finish();
                 }
                 else{
                     Toast.makeText(report.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
@@ -264,7 +272,6 @@ public class report extends AppCompatActivity {
             }
 
             if (status == HttpURLConnection.HTTP_OK) {
-                Toast.makeText(context, "cbon", Toast.LENGTH_LONG).show();
             } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
                 Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show();
             } else {

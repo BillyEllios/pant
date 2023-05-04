@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".controller.ReportModify"
+    tools:context=".controller.makeReport"
     android:screenOrientation="portrait">
 
     <LinearLayout
@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Compte Rendu à Modifier"
+            android:text="Compte Rendu"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:textColor="@color/pant"
@@ -34,42 +34,44 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Compte rendu à modifier :"
+            android:text="Compte rendu :"
             android:textStyle="bold"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:textSize="18sp"/>
 
         <EditText
-            android:id="@+id/report_modif"
+            android:id="@+id/reportText"
             android:layout_width="match_parent"
             android:layout_height="300px"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:padding="10dp"
             android:textSize="16sp"
-            android:background="@drawable/drawer_border" />
+            android:background="@drawable/drawer_border"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Intêret Client :"
             android:textStyle="bold"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:textSize="18sp"/>
 
         <Spinner
             android:id="@+id/interest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonSendReport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Modifier"
+            android:text="Envoyer"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"/>
     </LinearLayout>
 

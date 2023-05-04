@@ -99,8 +99,9 @@ public class takeAppoint extends AppCompatActivity {
 
                 try {
                     sendapi();
-                    Intent takeAppoint = new Intent(takeAppoint.this, takeAppoint.class);
+                    Intent takeAppoint = new Intent(takeAppoint.this, loginPage.class);
                     startActivity(takeAppoint);
+                    finish();
                 } catch (ExecutionException e) {
                     throw new RuntimeException(e);
                 } catch (InterruptedException e) {
@@ -134,6 +135,7 @@ public class takeAppoint extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("pol");
                 redirectActivity(takeAppoint.this, loginPage.class);
+                finish();
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +143,7 @@ public class takeAppoint extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("pol");
                 redirectActivity(takeAppoint.this, appointPast.class);
+                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +156,7 @@ public class takeAppoint extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(takeAppoint.this, report.class);
+                finish();
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +165,7 @@ public class takeAppoint extends AppCompatActivity {
                 int d=getMetier();
                 if(getMetier()==2){
                     redirectActivity(takeAppoint.this, listTeam.class);
+                    finish();
                 }
                 else{
                     Toast.makeText(takeAppoint.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
