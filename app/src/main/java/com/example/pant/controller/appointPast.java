@@ -23,9 +23,7 @@ import android.widget.Toast;
 
 import com.example.pant.R;
 import com.example.pant.modele.Appoint;
-import com.example.pant.modele.AppointAdaptaterFutur;
 import com.example.pant.modele.AppointAdaptaterPast;
-import com.example.pant.modele.Client;
 import com.example.pant.modele.user;
 
 import org.json.JSONArray;
@@ -53,10 +51,9 @@ public class appointPast extends AppCompatActivity {
 
     ListAdapter listAdapter;
     ArrayList<Appoint> dataArrayList = new ArrayList<>();
-    Appoint appoint;
     ListView listView;
 
-    private String id_user= user.id_user;
+    final String id_user= user.id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,7 +165,6 @@ public class appointPast extends AppCompatActivity {
         team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int d=getMetier();
                 if(getMetier()==2){
                     redirectActivity(appointPast.this, listTeam.class);
                     finish();
