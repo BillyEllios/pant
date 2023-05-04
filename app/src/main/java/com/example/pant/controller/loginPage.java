@@ -14,7 +14,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -55,7 +54,7 @@ public class loginPage extends AppCompatActivity {
 
     ListView listView;
 
-    private String id_user = user.id_user;
+    final String id_user = user.id_user;
 
 
     @Override
@@ -163,7 +162,6 @@ public class loginPage extends AppCompatActivity {
         team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int d=getMetier();
                 if(getMetier()==2){
                     redirectActivity(loginPage.this, listTeam.class);
                     finish();
