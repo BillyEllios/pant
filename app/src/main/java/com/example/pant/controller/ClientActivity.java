@@ -123,24 +123,28 @@ public class ClientActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 redirectActivity(ClientActivity.this, loginPage.class);
+                finish();
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(ClientActivity.this, appointPast.class);
+                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(ClientActivity.this, takeAppoint.class);
+                finish();
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(ClientActivity.this, report.class);
+                finish();
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +153,7 @@ public class ClientActivity extends AppCompatActivity {
                 int d=getMetier();
                 if(getMetier()==2){
                     redirectActivity(ClientActivity.this, listTeam.class);
+                    finish();
                 }
                 else{
                     Toast.makeText(ClientActivity.this, "vous n'avez pas l'autorisation", Toast.LENGTH_LONG).show();
@@ -159,6 +164,7 @@ public class ClientActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(ClientActivity.this, MainActivity.class);
+                finish();
             }
         });
     }
