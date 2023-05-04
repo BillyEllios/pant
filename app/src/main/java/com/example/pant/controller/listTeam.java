@@ -111,30 +111,35 @@ public class listTeam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, loginPage.class);
+                finish();
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, appointPast.class);
+                finish();
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, takeAppoint.class);
+                finish();
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(listTeam.this, report.class);
+                finish();
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 recreate();
+                finish();
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
