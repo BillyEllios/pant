@@ -84,6 +84,7 @@ public class makeReport extends AppCompatActivity {
                 System.out.println(Appoint.id_appoint);
                 System.out.println(Appoint.id_client);
 
+
                 try {
                     sendReport();
                     Intent makeReportReport = new Intent(makeReport.this, appointPast.class);
