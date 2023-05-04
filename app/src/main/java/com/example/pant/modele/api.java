@@ -105,7 +105,6 @@ public class api  extends AsyncTask<String, Void, JSONObject> {
             throw new RuntimeException(e);
         }
         if (status == HttpURLConnection.HTTP_OK) {
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
             Toast.makeText(context, "nom de compte ou mot de passe incorrect", Toast.LENGTH_LONG).show();
         } else {
