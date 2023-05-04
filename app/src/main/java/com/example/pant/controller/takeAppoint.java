@@ -122,7 +122,7 @@ public class takeAppoint extends AppCompatActivity {
         report = findViewById(R.id.report);
         team=findViewById(R.id.myteam);
         logout = findViewById(R.id.logout);
-
+        System.out.println(appointfutur);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,19 +132,21 @@ public class takeAppoint extends AppCompatActivity {
         appointfutur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("pol");
                 redirectActivity(takeAppoint.this, loginPage.class);
             }
         });
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("pol");
                 redirectActivity(takeAppoint.this, appointPast.class);
             }
         });
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recreate();
+                redirectActivity(takeAppoint.this, takeAppoint.class);
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
@@ -174,16 +176,18 @@ public class takeAppoint extends AppCompatActivity {
 
     }
 
-    public static void openDrawer(DrawerLayout drawerLayout){
+    public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
-    public static void closeDrawer(DrawerLayout drawerLayout){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
-    public static void redirectActivity(Activity activity, Class secondActivity){
-        Intent intent=new Intent(activity, secondActivity);
+
+    public static void redirectActivity(Activity activity, Class secondActivity) {
+        Intent intent = new Intent(activity, secondActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
         activity.finish();
@@ -194,6 +198,7 @@ public class takeAppoint extends AppCompatActivity {
         super.onPause();
         closeDrawer(drawerLayout);
     }
+
     private void loadSpinnerData() {
         String req;
         ArrayList<String> arrayHours =  new ArrayList<String>();

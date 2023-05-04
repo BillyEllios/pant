@@ -1,10 +1,14 @@
 package com.example.pant.modele;
 
+
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import com.example.pant.controller.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -112,4 +116,6 @@ public class api  extends AsyncTask<String, Void, JSONObject> {
             Toast.makeText(context, "Failed to connect to server. Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
         }
     }
+
+
 }
