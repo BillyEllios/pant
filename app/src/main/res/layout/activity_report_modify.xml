@@ -36,21 +36,25 @@
             android:layout_height="wrap_content"
             android:text="Compte rendu à modifier :"
             android:textStyle="bold"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/report_modif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:layout_height="300px"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:background="@drawable/drawer_border" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Intêret Client :"
             android:textStyle="bold"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:textSize="18sp"/>
 
@@ -58,7 +62,7 @@
             android:id="@+id/interest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:textSize="16sp" />
 
         <Button
