@@ -123,7 +123,6 @@ public class report extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openDrawer(drawerLayout);
-                finish();
             }
         });
         appointfutur.setOnClickListener(new View.OnClickListener() {
