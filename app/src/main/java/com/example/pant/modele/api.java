@@ -107,7 +107,7 @@ public class api  extends AsyncTask<String, Void, JSONObject> {
         if (status == HttpURLConnection.HTTP_OK) {
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         } else if (status == HttpURLConnection.HTTP_BAD_REQUEST) {
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "nom de compte ou mot de passe incorrect", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(context, "Failed to connect to server. Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
         }
