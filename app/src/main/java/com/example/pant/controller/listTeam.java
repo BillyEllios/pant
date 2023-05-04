@@ -1,6 +1,5 @@
 package com.example.pant.controller;
 
-import static com.example.pant.modele.user.getMetier;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -48,7 +47,7 @@ public class listTeam extends AppCompatActivity {
     ListAdapter listAdapter;
     ArrayList<Team> dataArrayList = new ArrayList<>();
 
-    private String id_user = user.id_user;
+    final String  id_user = user.id_user;
     ListView listView;
 
     @Override
