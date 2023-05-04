@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".controller.appointPast">
+    tools:context=".controller.appointPast"
+    android:screenOrientation="portrait">
 
     <ListView
         android:layout_width="match_parent"

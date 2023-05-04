@@ -102,7 +102,6 @@ public class report extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(report.this, ReportModify.class);
                 Report.id_report=listIdReport[i];
-                intent.putExtra("id_report", listIdReport[i]);
                 startActivity(intent);
             }
         });
