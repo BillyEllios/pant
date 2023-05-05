@@ -8,7 +8,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,22 +18,13 @@ import android.widget.Spinner;
 
 
 import com.example.pant.R;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 
-import android.widget.CalendarView;
-
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pant.R;
 import com.example.pant.modele.api;
 import com.example.pant.modele.user;
 
@@ -46,10 +36,7 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 
 import java.net.URLEncoder;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class takeAppoint extends AppCompatActivity {
