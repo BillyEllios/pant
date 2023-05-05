@@ -14,16 +14,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pant.R;
-import com.example.pant.modele.Appoint;
-import com.example.pant.modele.AppointAdaptaterFutur;
-import com.example.pant.modele.Client;
 import com.example.pant.modele.Report;
 import com.example.pant.modele.ReportAdaptater;
 import com.example.pant.modele.user;
