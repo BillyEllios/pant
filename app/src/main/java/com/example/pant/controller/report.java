@@ -61,8 +61,6 @@ public class report extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
 
-        Toast.makeText(getApplicationContext(), "login method to proceed", Toast.LENGTH_SHORT).show();
-
         Reports lg = new Reports(report.this);
         lg.execute();
 
