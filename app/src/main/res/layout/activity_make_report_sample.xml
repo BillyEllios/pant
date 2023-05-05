@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:context=".controller.makeReportSample"
+    android:screenOrientation="portrait">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview"
+        android:scrollbars="vertical"
+        android:layout_marginTop="130dp"
+        tools:listitem="@layout/sample_list"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/toolbar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Echantillon donné"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/pant"
+            android:textSize="36sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textvide"
+            android:text=""
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/pant"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_gravity = "start">
+
+        <include
+            layout="@layout/nav_drawer"/>
+
+    </RelativeLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

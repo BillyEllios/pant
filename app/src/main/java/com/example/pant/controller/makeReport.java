@@ -78,12 +78,6 @@ public class makeReport extends AppCompatActivity {
             public void onClick(View view) {
                 choice = interest.getSelectedItem().toString();
                 make_report = textReport.getText().toString();
-                System.out.println(choice);
-                System.out.println(make_report);
-                System.out.println(id_user);
-                System.out.println(Appoint.id_appoint);
-                System.out.println(Appoint.id_client);
-
 
                 try {
                     sendReport();
