@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -55,11 +57,12 @@ public class takeAppoint extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout appointfutur, appointpast, takeappoint, report, logout, team;
-    CalendarView date;
+        CalendarView date;
     Spinner hours;
     Spinner client;
     String clientVar,hoursVar,dateVar;
     Button button ;
+    private TextView dateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,28 +78,36 @@ public class takeAppoint extends AppCompatActivity {
 
         loadSpinnerData();
 
-        long selectedDateInMillis = date.getDate();
-        Date selectedDate = new Date(selectedDateInMillis);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        dateVar = sdf.format(selectedDate);
-
+        date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                // construire une chaîne de caractères pour afficher la date
+                dateVar = year + "-" + (month+1) + "-" + dayOfMonth;
+                System.out.println(dateVar);
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                    @Override
+                    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                        // construire une chaîne de caractères pour afficher la date
+                        dateVar = year + "-" + (month+1) + "-" + dayOfMonth;
+
+                    }
+                });
+
 
                 hoursVar = hours.getSelectedItem().toString();
                 String clients= client.getSelectedItem().toString();
                 String[] result = clients.split("-");
                 clientVar = result[0];
-                date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                        dateVar = String.format("%04d-%02d-%02d", year, month+1, dayOfMonth);
-                    }
-                });
 
+
+                System.out.println(dateVar);
                 try {
                     sendapi();
                     Intent takeAppoint = new Intent(takeAppoint.this, loginPage.class);
@@ -123,7 +134,7 @@ public class takeAppoint extends AppCompatActivity {
         report = findViewById(R.id.report);
         team=findViewById(R.id.myteam);
         logout = findViewById(R.id.logout);
-
+        System.out.println(appointfutur);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +144,7 @@ public class takeAppoint extends AppCompatActivity {
         appointfutur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("pol");
                 redirectActivity(takeAppoint.this, loginPage.class);
                 finish();
             }
@@ -140,6 +152,7 @@ public class takeAppoint extends AppCompatActivity {
         appointpast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("pol");
                 redirectActivity(takeAppoint.this, appointPast.class);
                 finish();
             }
@@ -147,7 +160,7 @@ public class takeAppoint extends AppCompatActivity {
         takeappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recreate();
+                redirectActivity(takeAppoint.this, takeAppoint.class);
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
@@ -179,16 +192,18 @@ public class takeAppoint extends AppCompatActivity {
 
     }
 
-    public static void openDrawer(DrawerLayout drawerLayout){
+    public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
-    public static void closeDrawer(DrawerLayout drawerLayout){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
-    public static void redirectActivity(Activity activity, Class secondActivity){
-        Intent intent=new Intent(activity, secondActivity);
+
+    public static void redirectActivity(Activity activity, Class secondActivity) {
+        Intent intent = new Intent(activity, secondActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
         activity.finish();
@@ -199,6 +214,7 @@ public class takeAppoint extends AppCompatActivity {
         super.onPause();
         closeDrawer(drawerLayout);
     }
+
     private void loadSpinnerData() {
         String req;
         ArrayList<String> arrayHours =  new ArrayList<String>();
@@ -273,6 +289,7 @@ public class takeAppoint extends AppCompatActivity {
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
+
 
         api takeAppoint = new api(takeAppoint.this, req, "https://pant-gsb.ovh/api/appointment/takeAppointment.php");
         takeAppoint.execute();
